@@ -6,6 +6,6 @@ public class Transacao
     public string Historico { get; set; }
     public DateTime Data { get; set; }
     public decimal Valor { get; set; }
-    public int PlanoConta_Id { get; set; }
+    public int PlanoContaId { get; set; }
     public PlanoConta PlanoConta { get; set; }
 }

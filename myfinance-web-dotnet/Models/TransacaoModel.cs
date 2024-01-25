@@ -12,7 +12,8 @@ namespace myfinance_web_dotnet.Models
         public string Historico { get; set; }
         public DateTime Data { get; set; }
         public decimal Valor { get; set; }
-        public int PlanoConta_Id { get; set; }
+        public int PlanoContaId { get; set; }
+        public string? Tipo { get; set; }
         public PlanoConta PlanoConta { get; set; }
     }
 

@@ -1,0 +1,30 @@
+@model myfinance_web_dotnet.Models.PlanoContaModel
+
+@{
+    ViewData["Title"] = "Criar Plano de Contas";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="card">
+    <div class="card-body">
+        <form asp-controller="PlanoConta" asp-action="Cadastrar" method="post">
+            <div class="mb-3">
+                <input type="hidden" asp-for="Id" />
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Descrição</span>
+                <input type="text" class="form-control" asp-for="Descricao" \>
+            </div>
+            <div class="mb-3">
+                <div class="form-check form-check-inline">
+                    <label class="form-check-label">@Html.RadioButtonFor(m => m.Tipo, "D")Despesa</label>
+                    <label class="form-check-label">@Html.RadioButtonFor(m => m.Tipo, "R")Receita</label>
+                </div>
+            </div>
+            <div class="mb-3">
+                <button type="submit" class="btn btn-block btn-success">Registrar</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -37,7 +37,8 @@ namespace myfinance_web_dotnet.Controllers
                     Historico = item.Historico,
                     Data = item.Data,
                     Valor = item.Valor,
-                    PlanoConta_Id = item.PlanoConta_Id
+                    Tipo = item.PlanoConta.Tipo,
+                    PlanoContaId = item.PlanoContaId
                 };
 
                 listaTransacaoModel.Add(itemTransacao);
@@ -62,7 +63,7 @@ namespace myfinance_web_dotnet.Controllers
                     Historico = transacao.Historico,
                     Data = transacao.Data,
                     Valor = transacao.Valor,
-                    PlanoConta_Id = transacao.PlanoConta_Id
+                    PlanoContaId = transacao.PlanoContaId
                 };
 
                 return View(transacaoModel);
@@ -81,7 +82,7 @@ namespace myfinance_web_dotnet.Controllers
                 Historico = transacaoModel.Historico,
                 Data = transacaoModel.Data,
                 Valor = transacaoModel.Valor,
-                PlanoConta_Id = transacaoModel.PlanoConta_Id
+                PlanoContaId = transacaoModel.PlanoContaId
             };
 
             _transacaoService.Cadastrar(transacao);
