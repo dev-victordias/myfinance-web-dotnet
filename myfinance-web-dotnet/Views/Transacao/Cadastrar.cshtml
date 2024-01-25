@@ -1,26 +1,32 @@
-@model myfinance_web_dotnet.Models.PlanoContaModel
+@model myfinance_web_dotnet.Models.TransacaoModel
 
 @{
-    ViewData["Title"] = "Criar Plano de Contas";
+    ViewData["Title"] = "Registrar Transação Financeira";
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <div class="card">
     <div class="card-body">
-        <form asp-controller="PlanoConta" asp-action="Cadastrar" method="post">
+        <form asp-controller="Transacao" asp-action="Cadastrar" method="post">
             <div class="mb-3">
                 <input type="hidden" asp-for="Id" />
             </div>
             <div class="input-group input-group-sm mb-3">
-                <span class="input-group-text">Descrição</span>
-                <input type="text" class="form-control" asp-for="Descricao" \>
+                <span class="input-group-text">Data</span>
+                <input type="date" class="form-control" asp-for="Data" \>
             </div>
-            <div class="mb-3">
-                <div class="form-check form-check-inline">
-                    <label class="form-check-label">@Html.RadioButtonFor(m => m.Tipo, "D")Despesa</label>
-                    <label class="form-check-label">@Html.RadioButtonFor(m => m.Tipo, "R")Receita</label>
-                </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Valor</span>
+                <input type="text" class="form-control" asp-for="Valor" step="0.01"\>
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Plano de Conta</span>
+                @Html.DropDownListFor(m=> m.PlanoContaId, Model.ListaPlanoContas, new { @class="form-select"})
+            </div>
+            <div class="input-group input-group-sm mb-3">
+                <span class="input-group-text">Historico</span>
+                <input type="text" class="form-control" asp-for="Historico"\>
             </div>
             <div class="mb-3">
                 <button type="submit" class="btn btn-block btn-success">Registrar</button>
